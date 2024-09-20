@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'favorites/index'
+  get 'favorites/new'
+  get 'recipes/index'
+  get 'recipes/new'
+  get 'categories/index'
+  get 'categories/new'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
