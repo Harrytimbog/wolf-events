@@ -1,20 +1,20 @@
 class Recipe < ApplicationRecord
-  # associations
+  # Associations
+  has_many_attached :photos
   belongs_to :user
   belongs_to :category
   has_many :favorites, dependent: :destroy
 
-  # validations
-
-  validates :title, :description, :ingredients, :instructions, :location, :prep_time, presence: true, uniqueness: true
+  # Validations
+  validates :title, :description, :ingredients, :instructions, :location, :prep_time, presence: true
   validates :user, :category, presence: true
-  validate :user_must_be_chef
-  
+  validate :user_must_be_chef_or_admin
+
   private
 
-  def user_must_be_chef
-    if user && user.role != "Chef"
-      errors.add(:user, "must be a Chef")
+  def user_must_be_chef_or_admin
+    if user && !user.chef? && !user.is_admin?
+      errors.add(:user, "must be a Chef or Admin to create a recipe")
     end
   end
 end
