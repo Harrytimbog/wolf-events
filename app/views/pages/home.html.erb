@@ -1,2 +1,43 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container text-center mt-5">
+  <h1>Welcome to Event Space Finder</h1>
+  <p class="lead">Discover, manage, and share incredible venues for your next event!</p>
+
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <%= image_tag "concert111.avif", class: "card-img-top", alt: "Concert Venue" %>
+        <div class="card-body">
+          <h5 class="card-title">Find Venues</h5>
+          <p class="card-text">Explore a variety of event spaces, from concert halls to outdoor venues.</p>
+          <%= link_to 'Browse Venues', event_places_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <%= image_tag "hall.avif", class: "card-img-top", alt: "Hall Venue" %>
+        <div class="card-body">
+          <h5 class="card-title">Manage Your Events</h5>
+          <p class="card-text">Easily create and manage your events with all the details you need.</p>
+          <%= link_to 'Create Event', new_event_place_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <%= image_tag "tech-hub111.avif", class: "card-img-top", alt: "Tech Hub Venue" %>
+        <div class="card-body">
+          <h5 class="card-title">Share and Connect</h5>
+          <p class="card-text">Share your favorite venues and connect with other event planners.</p>
+          <%= link_to 'Join Us', new_user_registration_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mt-5 mb-3 text-muted">
+    <p>&copy; 2024 Event Space Finder. All rights reserved.</p>
+  </footer>
+</div>
