@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   has_one_attached :photo
 
-  enum role: { viewer: "Viewer", chef: "Chef" } # Define roles
+  enum role: { guest: "Guest", host: "Host" } # Define roles
 
-  has_many :recipes, dependent: :destroy
+  has_many :event_places, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
   # Include default devise modules. Others available are:

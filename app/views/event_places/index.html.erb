@@ -1,0 +1,30 @@
+<h1>Event Places</h1>
+
+<%= link_to 'New Event Place', new_event_place_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @event_places.each do |event_place| %>
+      <tr>
+        <td><%= event_place.name %></td>
+        <td><%= truncate(event_place.description, length: 100) %></td>
+        <td><%= event_place.location %></td>
+        <td><%= event_place.category&.name || 'N/A' %></td>
+        <td>
+          <%= link_to 'Show', event_place_path(event_place), class: 'btn btn-info' %>
+          <%= link_to 'Edit', edit_event_place_path(event_place), class: 'btn btn-warning' %>
+          <%= link_to 'Delete', event_place_path(event_place), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,17 @@
+<h1><%= @event_place.name %></h1>
+<p><%= @event_place.description %></p>
+<p><%= @event_place.location %></p>
+
+<% if @event_place.category %>
+  <p>Category: <%= @event_place.category.name %></p>
+<% end %>
+
+
+<% if @event_place.photos.attached? %>
+  <h2>Photos</h2>
+  <div class="photos">
+    <% @event_place.photos.each do |photo| %>
+      <%= image_tag photo %>
+    <% end %>
+  </div>
+<% end %>

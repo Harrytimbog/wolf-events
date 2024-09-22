@@ -19,7 +19,7 @@
     <%= f.input :photo, as: :file %>
 
     <%= f.input :role, 
-                collection: [["Chef", "Chef"], ["Viewer", "Viewer"]],
+                collection: [["Host", "Host"], ["Guest", "Guest"]],
                 prompt: "Select your role", 
                 required: true %> <!-- Dropdown for role selection -->
   </div>

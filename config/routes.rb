@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: "pages#home"
 
-  resources :recipes  # This creates routes for all CRUD actions for recipes
+  resources :event_places  # This creates routes for all CRUD actions for event_place
   resources :categories  # This creates routes for all CRUD actions for categories
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
