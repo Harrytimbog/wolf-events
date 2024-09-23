@@ -27,7 +27,7 @@
 
     <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
-        <%= image_tag "tech-hub111.avif", class: "card-img-top", alt: "Tech Hub Venue" %>
+        <%= image_tag "seminar111.avif", class: "card-img-top", alt: "Tech Hub Venue" %>
         <div class="card-body">
           <h5 class="card-title">Share and Connect</h5>
           <p class="card-text">Share your favorite venues and connect with other event planners.</p>
@@ -37,7 +37,14 @@
     </div>
   </div>
 
-  <footer class="mt-5 mb-3 text-muted">
+  <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+  </div>
+
+  <footer class="mt-5 mb-3 text-muted text-center">
     <p>&copy; <%= Time.current.year %> Event Space Finder. All rights reserved.</p>
   </footer>
 </div>

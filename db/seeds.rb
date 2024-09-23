@@ -20,8 +20,8 @@ end
 
 puts "Creating users..."
 users = [
-  { username: "admin_user", email: "admin@example.com", password: "password", role: "Host", is_admin: true },
-  { username: "regular_user", email: "user@example.com", password: "password", role: "Host", is_admin: false }
+  { username: "admin_user", email: "admin@wolfevent.com", password: "password", role: "Host", is_admin: true },
+  { username: "Jerry", email: "jerry@example.com", password: "password", role: "Host", is_admin: false }
 ]
 
 users.each do |attributes|

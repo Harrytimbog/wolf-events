@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'favorites/index'
-  get 'favorites/new'
-
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: "pages#home"
 
+  resources :favorites, only: [:index, :create, :destroy]
   resources :event_places  # This creates routes for all CRUD actions for event_place
   resources :categories  # This creates routes for all CRUD actions for categories
 

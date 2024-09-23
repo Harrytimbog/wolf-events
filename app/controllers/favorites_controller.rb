@@ -21,6 +21,17 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def destroy
+    @favorite = Favorite.find(params[:id])
+    if @favorite
+      Rails.logger.info "Deleting favorite with id: #{@favorite.id}"
+      @favorite.destroy
+      redirect_to favorites_path, notice: "Favorite deleted successfully"
+    else
+      redirect_to favorites_path, alert: "Favorite not found"
+    end
+  end
+
   private
 
   def favorite_params
