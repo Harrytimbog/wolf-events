@@ -5,6 +5,11 @@ class EventPlace < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many_attached :photos
 
+  # Geocoding
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
+
   # Validations
   validates :name, presence: true
   validates :description, presence: true
