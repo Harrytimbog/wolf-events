@@ -19,6 +19,13 @@
           <% end %>
         </div>
       <% end %>
+
+      <div class="text-center mt-4">
+        <%= simple_form_for :favorite, url: favorites_new_path, method: :post do |form| %>
+          <%= form.hidden_field :event_place_id, value: @event_place.id %>
+          <%= form.submit 'Add to Favorites', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

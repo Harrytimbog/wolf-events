@@ -1,8 +1,8 @@
 class FavoritesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  
+
   def index
-    @favorites = current_user.favorites.includes(:recipe)
+    @favorites = current_user.favorites.includes(:event_place)
   end
 
   def new
@@ -11,7 +11,8 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = current_user.favorites.build(favorite_params)
-    @favorite.recipe = Recipe.find(params[:favorite][:recipe_id])
+    @favorite.event_place = EventPlace.find(params[:favorite][:event_place_id])
+    @favorite.user = current_user
 
     if @favorite.save
       redirect_to favorites_path, notice: "Favorite created successfully"
@@ -23,6 +24,6 @@ class FavoritesController < ApplicationController
   private
 
   def favorite_params
-    params.require(:favorite).permit(:recipe_id)
+    params.require(:favorite).permit(:event_place_id)
   end
 end
